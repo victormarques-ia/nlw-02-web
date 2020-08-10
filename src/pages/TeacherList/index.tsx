@@ -2,7 +2,7 @@ import React, { useState, FormEvent } from 'react';
 
 import PageHeader from '../../components/PageHeader';
 
-import './styles.css';
+import { PageTeacherListBlock, SearchTeachers} from './styles'
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
@@ -30,9 +30,9 @@ function TeacherList() {
   }
 
   return (
-    <div id="page-teacher-list" className="container">
+    <PageTeacherListBlock>
       <PageHeader title="Estes são os proffys disponíveis.">
-        <form id="search-teachers" onSubmit={handleSearchTeachers}>
+        <SearchTeachers onSubmit={handleSearchTeachers}>
           <Select
             name="subject"
             label="Matéria"
@@ -73,7 +73,7 @@ function TeacherList() {
             onChange={(e) => setTime(e.target.value)}
           />
           <button type="submit">Buscar</button>
-        </form>
+        </SearchTeachers>
       </PageHeader>
 
       <main>
@@ -81,7 +81,7 @@ function TeacherList() {
           return <TeacherItem key={teacher.id} teacher={teacher} />;
         })}
       </main>
-    </div>
+    </PageTeacherListBlock>
   );
 }
 

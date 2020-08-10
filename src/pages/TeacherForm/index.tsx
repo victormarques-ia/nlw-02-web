@@ -1,10 +1,11 @@
 import React, { useState, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import api from '../../services/api';
-import PageHeader from '../../components/PageHeader';
-import './styles.css';
-import Input from '../../components/Input';
 
+import { PageTeacherFormBlock, TeacherMainForm, TeacherFormFooter} from './styles';
+
+import PageHeader from '../../components/PageHeader';
+import Input from '../../components/Input';
 import warningIcon from '../../assets/images/icons/warning.svg';
 import Textarea from '../../components/Textarea';
 import Select from '../../components/Select';
@@ -78,12 +79,12 @@ function TeacherForm() {
   }
 
   return (
-    <div id="page-teacher-form" className="container">
+    <PageTeacherFormBlock>
       <PageHeader
         title="Que incrível que você quer dar aulas."
         description="O primeiro passo é preencher esse formulário de inscrição"
       />
-      <main>
+      <TeacherMainForm>
         <form onSubmit={handleCreateClass}>
           <fieldset>
             <legend>Seus dados</legend>
@@ -193,17 +194,17 @@ function TeacherForm() {
             ))}
           </fieldset>
 
-          <footer>
+          <TeacherFormFooter>
             <p>
               <img src={warningIcon} alt="Aviso importante" />
               Importante! <br />
               Preencha todos os dados
             </p>
             <button type="submit">Salvar cadastro</button>
-          </footer>
+          </TeacherFormFooter>
         </form>
-      </main>
-    </div>
+      </TeacherMainForm>
+    </PageTeacherFormBlock>
   );
 }
 

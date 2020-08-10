@@ -54,14 +54,16 @@ export default createGlobalStyle`
     color: var(--color-text-base);
   }
 
-  .container {
-    width: 90vw;
-    max-width: 700px;
-  }
-
   @media (min-width: 700px) {
     :root {
       font-size: 62.5%;
     }
   }
 `
+
+export const Container = styled.div`
+
+  width: 90vw;
+  max-width: 700px;
+
+`;

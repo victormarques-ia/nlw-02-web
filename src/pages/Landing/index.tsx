@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
-import './styles.css';
+import { PageLandingBlock, PageLandingContent, LogoContainer, ButtonsContainer, TotalConnections} from './styles'
 
 import logoImg from '../../assets/images/logo.svg';
 import landingImg from '../../assets/images/landing.svg';
@@ -20,12 +20,12 @@ export default function Landing() {
   }, []);
 
   return (
-    <div id="page-landing">
-      <div id="page-landing-content" className="container">
-        <div className="logo-container">
+    <PageLandingBlock>
+      <PageLandingContent>
+        <LogoContainer>
           <img src={logoImg} alt="Proffy" />
           <h2>Sua plataforma de estudos online.</h2>
-        </div>
+        </LogoContainer>
 
         <img
           src={landingImg}
@@ -33,7 +33,7 @@ export default function Landing() {
           className="hero-image"
         />
 
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Link to="/study" className="study">
             <img src={studyIcon} alt="Estudar" />
             Estudar
@@ -43,13 +43,13 @@ export default function Landing() {
             <img src={giveClassesIcon} alt="Dar aulas" />
             Dar aulas
           </Link>
-        </div>
+        </ButtonsContainer>
 
-        <span className="total-connections">
+        <TotalConnections>
           Total de {totalConnections} conexões já realizadas
           <img src={purpleHeartIcon} alt="Coração roxo" />
-        </span>
-      </div>
-    </div>
+        </TotalConnections>
+      </PageLandingContent>
+    </PageLandingBlock>
   );
 }
